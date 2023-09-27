@@ -6,6 +6,7 @@ use Carbon\Carbon;
 
 class CreatePoll
 {
+    /** @var string[] */
     private array $participants;
     private Carbon|null $expiresAt;
 
