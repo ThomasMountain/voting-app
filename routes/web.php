@@ -27,4 +27,6 @@ Route::middleware([
     })->name('dashboard');
 
     Route::get('/polls', \App\Livewire\ListPolls::class)->name('polls.index');
+    Route::get('/polls/create', \App\Livewire\CreatePoll::class)->name('polls.create');
+    Route::get('/polls/{poll}', \App\Livewire\ShowPoll::class)->name('polls.show');
 });

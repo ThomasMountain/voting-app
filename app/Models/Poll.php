@@ -11,6 +11,7 @@ class Poll extends Projection
     protected $guarded = [];
 
     protected $casts = [
+        'participants' => 'array',
         'status' => PollStatus::class,
     ];
 

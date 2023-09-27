@@ -11,4 +11,15 @@ enum PollStatus: string
     case COMPLETED = 'completed';
     case CLOSED = 'closed';
     case CANCELLED = 'cancelled';
+
+    public function color(): string
+    {
+        return match($this)
+        {
+            self::CREATED => 'gray',
+            self::IN_PROGRESS => 'blue',
+            self::COMPLETED => 'green',
+            self::CLOSED, self::CANCELLED => 'red'
+        };
+    }
 }

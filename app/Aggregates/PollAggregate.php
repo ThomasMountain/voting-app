@@ -17,23 +17,23 @@ class PollAggregate extends AggregateRoot
     private ?Carbon $expiresAt = null;
     private bool $isClosed = false;
 
-    public function create(CreatePoll $createPollCommand): void
+    public function create(CreatePoll $createPollCommand): self
     {
-        $this->recordThat(new PollCreated($createPollCommand->getParticipants(), $createPollCommand->getExpiresAt()));
+        return $this->recordThat(new PollCreated($createPollCommand->getParticipants(), $createPollCommand->getExpiresAt()));
     }
 
-    public function vote(string $voterUuid, string $userUuid): void
+    public function vote(string $voterUuid, string $userUuid): self
     {
         if ($this->isClosed) {
-            return;
+            return $this;
         }
 
         if (!is_null($this->expiresAt) && $this->expiresAt->isPast()) {
-            return;
+            return $this;
         }
 
         if (!in_array($userUuid, $this->participants)) {
-            return;
+            return $this;
         }
 
         $this->recordThat(new VoteSubmitted($voterUuid, $userUuid));
@@ -41,11 +41,13 @@ class PollAggregate extends AggregateRoot
         if (count($this->voted) === count($this->participants)) {
             $this->recordThat(new PollCompleted());
         }
+
+        return $this;
     }
 
-    public function closePoll(): void
+    public function closePoll(): self
     {
-        $this->recordThat(new PollClosed());
+        return $this->recordThat(new PollClosed());
     }
 
     public function applyPollCreated(PollCreated $pollCreated): void
