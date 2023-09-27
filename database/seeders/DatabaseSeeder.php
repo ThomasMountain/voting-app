@@ -13,8 +13,18 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         UserFactory::new()->withPersonalTeam()->create([
-             'name' => 'Test User',
-             'email' => 'test@example.com',
+             'name' => 'Admin User',
+             'email' => 'admin@example.com',
          ]);
+
+        UserFactory::new()->withPersonalTeam()->create([
+            'name' => 'Andy',
+            'email' => 'andy@example.com',
+        ]);
+
+        UserFactory::new()->withPersonalTeam()->create([
+            'name' => 'David',
+            'email' => 'david@example.com',
+        ]);
     }
 }
