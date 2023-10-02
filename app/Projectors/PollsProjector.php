@@ -26,7 +26,7 @@ class PollsProjector extends Projector
     {
         $poll = Poll::uuid($event->aggregateRootUuid());
 
-        if ($poll->status === PollStatus::IN_PROGRESS) {
+        if ($poll->status === PollStatus::CREATED) {
             $poll->status = PollStatus::IN_PROGRESS;
             $poll->writeable()->save();
         }
