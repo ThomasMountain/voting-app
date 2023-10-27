@@ -23,7 +23,7 @@ class ColourToggle extends Component
 
         auth()->user()->refresh();
 
-        $this->js("document.getElementById('head').classList.toggle('dark')");
+        $this->js("document.getElementById('html-head').classList.toggle('dark')");
     }
 
 }

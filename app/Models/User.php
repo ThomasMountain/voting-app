@@ -59,8 +59,8 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function getDarkMode()
+    public function getDarkMode(): bool
     {
-        return $this->dark_mode;
+        return (bool) $this->dark_mode;
     }
 }

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}"
-      id="head"
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" id="html-head"
       @if(auth()->user()->getDarkMode())
           class="dark"
     @endif
