@@ -87,13 +87,13 @@
             @endif
         </div>
 
-        <!-- Dark Mode -->
-        <div class="col-span-6 sm:col-span-4">
-            <x-label for="name" value="{{ __('Enable Dark Mode') }}"/>
+{{--        <!-- Dark Mode -->--}}
+{{--        <div class="col-span-6 sm:col-span-4">--}}
+{{--            <x-label for="name" value="{{ __('Enable Dark Mode') }}"/>--}}
 
-            <input type="checkbox" name="dark_mode" id="dark_mode" wire:model="state.dark_mode">
-            <x-input-error for="dark_mode" class="mt-2"/>
-        </div>
+{{--            <input type="checkbox" name="dark_mode" id="dark_mode" wire:model="state.dark_mode">--}}
+{{--            <x-input-error for="dark_mode" class="mt-2"/>--}}
+{{--        </div>--}}
     </x-slot>
 
     <x-slot name="actions">
