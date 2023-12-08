@@ -1,6 +1,6 @@
 <div>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight dark:text-gray-300">
             {{ __('Vote') }}
         </h2>
     </x-slot>
@@ -15,7 +15,7 @@
                             <li>
                                 <label class="w-full py-2 inline-flex items-center">
                                     <x-input type="radio" class="rounded" name="vote" value="{{ $user->uuid }}" wire:model="vote" />
-                                    <span class="ml-2">{{ $user->name }}</span>
+                                    <span class="ml-2 dark:text-gray-300">{{ $user->name }}</span>
                                 </label>
                             </li>
                         @endforeach
